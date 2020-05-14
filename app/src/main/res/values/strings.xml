@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Bits and Pizzas</string>
 
-    <string name="create_order">Create Order</string>
+    <string name="create_order">Create Order 999</string>
+
+    <string name="action_share">Share</string>
+
 
 </resources>
