@@ -2,6 +2,8 @@ package com.example.bitsandpizzas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.appcompat.widget.ShareActionProvider;
 import androidx.appcompat.widget.Toolbar;
 
 
@@ -12,10 +14,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+
 import android.widget.Toast;
 
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.MenuItemCompat;
 
 import java.util.StringTokenizer;
 import java.util.concurrent.Callable;
@@ -23,6 +28,8 @@ import java.util.concurrent.Callable;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    public ShareActionProvider mShareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +50,22 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflator = getMenuInflater();
         inflator.inflate(R.layout.menu_main, menu);
 
+        MenuItem menuItem = menu.findItem(R.id.action_share);
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+        setShareActionIntent("Want to join me for pizza?");
+
         return super.onCreateOptionsMenu(menu);
 
     }
+
+
+    private void setShareActionIntent(String text) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, text);
+        mShareActionProvider.setShareIntent(intent);
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -80,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
                 return true;
-                }
+        }
 
         return super.onOptionsItemSelected(item);
     }

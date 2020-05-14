@@ -3,19 +3,19 @@
 
 
     <item
-        android:id="@+id/action_share"
-        android:title="@string/action_share"
-        android:orderInCategory="2"
-        app:showAsAction="ifRoom"
-        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"/>
+        android:id="@+id/action_create_order"
+        android:icon="@drawable/baseline_add_black_18dp"
+        android:orderInCategory="1"
+        android:title="@string/create_order"
+        app:showAsAction="ifRoom"></item>
 
 
     <item
-        android:id="@+id/action_create_order"
-        android:icon="@drawable/baseline_add_black_18dp"
-        android:title="@string/create_order"
-        android:orderInCategory="1"
-        app:showAsAction="ifRoom"></item>
+        android:id="@+id/action_share"
+        android:orderInCategory="2"
+        android:title="@string/action_share"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"
+        app:showAsAction="ifRoom" />
 
 
     <item
